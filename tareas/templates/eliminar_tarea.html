@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Eliminar Tarea{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-lg p-4 mb-5 bg-white rounded border border-danger">
+            <div class="card-body text-center">
+                <h1 class="card-title text-dark mb-4"> Confirmar Eliminación</h1>
+                
+                <p class="lead">Estás a punto de eliminar la siguiente tarea:</p>
+                <h2 class="mb-4 text-dark">{{ tarea.title }}</h2>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-lg w-100 mb-2">Sí, Eliminar Permanentemente</button>
+                </form>
+                <a href="{% url 'tareas_list' %}" class="btn btn-outline-secondary w-100">Cancelar y Volver</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
